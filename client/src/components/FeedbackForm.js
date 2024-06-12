@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../App.css'
 
-const FeedbackForm = () => {
+const FeedbackForm = (props) => {
     const [name, setName] = useState('');
     const [feedback, setFeedback] = useState('');
 
@@ -17,6 +17,7 @@ const FeedbackForm = () => {
         }
         setName('');
         setFeedback('');
+        props.functionCall();
     };
 
     return (
@@ -31,6 +32,7 @@ const FeedbackForm = () => {
                 <textarea value={feedback} onChange={(e) => setFeedback(e.target.value)} className='feedback'></textarea>
             </div>
             <button type="submit" className='submit-button'>Submit</button>
+            <em>You can submit 1 review per 10 seconds</em>
         </form>
     );
 };

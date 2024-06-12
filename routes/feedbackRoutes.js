@@ -4,12 +4,13 @@ const { getFeedback, submitFeedback } = require('../controllers/feedbackControll
 
 const router = express.Router();
 
+function callme(req, res) {
+    return res.send({ error: "Too many requests, wait for 10 seconds from now" })
+}
 const limiter = rateLimit({
     windowMs: 10 * 1000, // 10 seconds
     max: 1, // limit each IP to 1 request per windowMs
-    message: {
-        error: 'Too many feedback submissions from this IP, please try again after 10 seconds.'
-    }
+    handler: callme
 });
 
 router.get('/', getFeedback);

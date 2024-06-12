@@ -8,7 +8,7 @@ body {
     align-items: center;
 }
 
-.main-heading{
+.main-heading {
     font-size: 50px;
     font-family: fantasy;
 }
@@ -48,7 +48,6 @@ label {
 
 .feedback {
     height: 100px;
-    resize: none;
 }
 
 .submit-button {
